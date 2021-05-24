@@ -10,6 +10,7 @@ import RxSwift
 import Domain
 import RxRelay
 import RxCocoa
+import Common
 
 public class EventsViewController: UIViewController, BindableType {
 
@@ -88,6 +89,8 @@ private extension EventsViewController {
         
         tableView.refreshControl = refreshControl
         refreshControl.tintColor = .appGreen
+        
+        tableView.accessibilityLabel = Identifier.Events.table.rawValue
     }
     
     func configure(for state: EventsState) {

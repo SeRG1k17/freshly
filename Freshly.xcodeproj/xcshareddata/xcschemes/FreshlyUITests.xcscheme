@@ -10,16 +10,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BFD346FB26598B1000E6901B"
-               BuildableName = "PlatformTests.xctest"
-               BlueprintName = "PlatformTests"
+               BlueprintIdentifier = "BF1CDF74265C269F00E70A4C"
+               BuildableName = "FreshlyUITests.xctest"
+               BlueprintName = "FreshlyUITests"
                ReferencedContainer = "container:Freshly.xcodeproj">
             </BuildableReference>
          </TestableReference>

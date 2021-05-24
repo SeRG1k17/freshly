@@ -9,6 +9,7 @@ import UIKit
 import Domain
 import RxCocoa
 import RxSwift
+import Common
 
 class EventTableViewCell: UITableViewCell {
 
@@ -53,6 +54,10 @@ private extension EventTableViewCell {
         dateLabel.textColor = .appGreen
         favouriteButton.tintColor = .appGreen
         favouriteButton.setTitle(nil, for: .normal)
+        
+        titleLabel.accessibilityLabel = Identifier.Events.Table.Cell.title.rawValue
+        dateLabel.accessibilityLabel = Identifier.Events.Table.Cell.date.rawValue
+        favouriteButton.accessibilityLabel = Identifier.Events.Table.Cell.favourite.rawValue
     }
 }
 

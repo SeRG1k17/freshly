@@ -8,17 +8,6 @@
 import Foundation
 import RxDataSources
 import Domain
-//
-//struct Event: IdentifiableType, Identifiable, Equatable {
-//
-//    typealias ID = String
-//    typealias Identity = ID
-//
-//    var id: ID
-//    var identity: Identity {
-//        id
-//    }
-//}
 
 extension Domain.Event: IdentifiableType, Identifiable {
     

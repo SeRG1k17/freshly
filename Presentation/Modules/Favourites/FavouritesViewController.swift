@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import Domain
 import RxRelay
+import Common
 
 public class FavouritesViewController: UIViewController, BindableType {
 
@@ -62,6 +63,7 @@ extension FavouritesViewController {
 private extension FavouritesViewController {
     
     func configureUI() {
+        tableView.accessibilityLabel = Identifier.Favourites.table.rawValue
     }
 }
 

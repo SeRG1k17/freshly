@@ -66,10 +66,6 @@ private extension NetworkServiceEndpoint {
         static var `default`: [ParameterKey: String] {
             return [
                 .clientId: "MjE3MTU3MjV8MTYxODQxMDMzNS44NzY4MDQ4"
-                //.contentType: "application/json",
-                //.deviceId: UIDevice.current.identifierForVendor?.uuidString ?? "unknown",
-                //.osVersion: UIDevice.current.systemVersion,
-                //.clientVersion: (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "unknown"
             ]
         }
     }
@@ -92,12 +88,12 @@ private extension NetworkServiceEndpoint {
     // Use properties for cases with specific filenames and extensions
     func stubbedResponse(_ filename: String? = nil, withExtension ext: FileExtension? = nil) -> Data? {
 
-        let name = filename ?? String(describing: self)//.capitalizedFirstLetter
+        let name = filename ?? String(describing: self).capitalizedFirstLetter
         let fileExtension = ext ?? .json
 
         guard
             let match = name.range(of: "^[\\w]*", options: .regularExpression),
-            let file = Bundle.main.url(forResource: String(name[match]), withExtension: fileExtension.string),
+            let file = Bundle.module.url(forResource: String(name[match]), withExtension: fileExtension.string),
             let data = try? Data(contentsOf: file) else {
             return Data()
         }

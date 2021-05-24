@@ -47,7 +47,6 @@ extension EventsRepository: EventsRepositoryProtocol {
     
     public func update() -> Completable {
         dependencies.storageService.get(for: Key.date.rawValue)
-            .debug("-_- get data")
             .map({ (date: Date) -> Optional<Date> in Optional(date) })
             .catchErrorJustReturn(nil)
             .flatMapCompletable({ [unowned self] (date: Date?) -> Completable in
@@ -67,14 +66,12 @@ private extension EventsRepository {
         
         dependencies.storageService
             .listen(for: Key.events.rawValue)
-            .debug("-_- from cache", trimOutput: true)
             .bind(to: eventsRelay)
             .disposed(by: disposeBag)
     }
     
     func request() -> Completable {
         dependencies.networkService.request(.events)
-            .debug("-_- network", trimOutput: true)
             .map({ (container: Container) -> [Domain.Event] in
                 return container.events
             })
@@ -86,7 +83,6 @@ private extension EventsRepository {
     
     func setCache<T: Encodable, K: Hashable>(items: T, for key: K) -> Completable {
         dependencies.storageService.set(value: items, for: key)
-            .debug("-_- set \(key)", trimOutput: true)
     }
     
     enum Key: String {

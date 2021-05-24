@@ -79,6 +79,16 @@
                ReferencedContainer = "container:Freshly.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BF1CDF74265C269F00E70A4C"
+               BuildableName = "FreshlyUITests.xctest"
+               BlueprintName = "FreshlyUITests"
+               ReferencedContainer = "container:Freshly.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

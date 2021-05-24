@@ -7,12 +7,13 @@
 
 import Moya
 import RxSwift
+import Common
 
 public final class NetworkService {
 
     private let provider: MoyaProvider<NetworkServiceEndpoint>
 
-    public private(set) static var plugins: [PluginType] = {
+    public private(set) var plugins: [PluginType] = {
         return [
             NetworkLoggerPlugin(),
             NetworkActivityPlugin(networkActivityClosure: { (changeType: NetworkActivityChangeType, target: TargetType) in
@@ -20,8 +21,14 @@ public final class NetworkService {
         ]
     }()
 
-    public init(provider: MoyaProvider<NetworkServiceEndpoint> = MoyaProvider(plugins: NetworkService.plugins)) {
-        self.provider = provider
+    public init() {
+        
+        let isTesting = ProcessInfo.processInfo.arguments.contains(LaunchArgument.testing.rawValue)
+        
+        self.provider = MoyaProvider<NetworkServiceEndpoint>(
+            stubClosure: isTesting ? MoyaProvider.immediatelyStub: MoyaProvider.neverStub,
+            plugins: plugins
+        )
     }
 }
 

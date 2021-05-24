@@ -8,6 +8,7 @@
 import RxSwift
 import XCoordinator
 import Presentation
+import Common
 
 class AppCoordinator: TabBarCoordinator<AppRoute> {
 
@@ -24,6 +25,7 @@ class AppCoordinator: TabBarCoordinator<AppRoute> {
         root.tabBarItem.image = UIImage(systemName: "note")
         root.tabBarItem.selectedImage = UIImage(systemName: "note.text")
         root.title = "Events"
+        root.accessibilityLabel = Identifier.Tab.events.rawValue
         
         return coordinator
     }()
@@ -40,6 +42,7 @@ class AppCoordinator: TabBarCoordinator<AppRoute> {
         root.tabBarItem.image = UIImage(systemName: "star")
         root.tabBarItem.selectedImage = UIImage(systemName: "star.fill")
         root.title = "Favourites"
+        root.accessibilityLabel = Identifier.Tab.favourites.rawValue
         
         return coordinator
     }()

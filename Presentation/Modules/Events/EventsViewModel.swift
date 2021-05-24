@@ -66,7 +66,6 @@ public final class EventsViewModel: EventsViewModelType {
             .startWith(.loading)
             .distinctUntilChanged()
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-            .debug("-_- state", trimOutput: true)
             .asDriver(onErrorJustReturn: .idle( []))
     )
 }
