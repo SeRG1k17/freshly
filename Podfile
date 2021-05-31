@@ -7,9 +7,18 @@ use_frameworks!# :linkage => :static
 workspace 'Freshly'
 project 'Freshly.xcodeproj'
 
-def common_pods
+def dev_pod(name, opts={})
+  opts[:path] = 'Development Pods/' + name
+  pod name, opts
+end
+
+def rx
   pod 'RxRelay'
   pod 'RxSwift'
+end
+
+def common_pods
+  rx
   pod 'XCoordinator/RxSwift'
   pod 'RxDataSources'
   pod 'Moya/RxSwift'
@@ -18,55 +27,55 @@ end
 
 def test_pods
   pod 'RxTest'
+  dev_pod 'RxTestable'
 end
 
 target :Freshly do
   project 'Freshly.xcodeproj'
-  pod 'RxSwift'
+  rx
   pod 'XCoordinator/RxSwift'
-end
-
-target :Common do
-  project 'Freshly.xcodeproj'
-  pod 'RxSwift'
-  pod 'RxRelay'
-end
-
-target :CommonTests do
-  project 'Freshly.xcodeproj'
-  test_pods
 end
 
 target :Presentation do
   project 'Freshly.xcodeproj'
-  pod 'RxRelay'
-  pod 'RxSwift'
+  rx
   pod 'XCoordinator/RxSwift'
   pod 'RxDataSources'
   pod 'RxCocoa'
   pod 'Instance'
+  dev_pod 'Common'
 end
 
 target :Domain do
   project 'Freshly.xcodeproj'
-  pod 'RxSwift'
+  rx
 end
 
 target :Platform do
   project 'Freshly.xcodeproj'
-  pod 'RxRelay'
-  pod 'RxSwift'
+  rx
   pod 'Moya/RxSwift'
 end
+
+
+#Test targets
 
 target :PlatformTests do
   project 'Freshly.xcodeproj'
   test_pods
+  rx
 end
 
 target :FreshlyTests do
   project 'Freshly.xcodeproj'
   test_pods
+  rx
+end
+
+target :DomainTests do
+  project 'Freshly.xcodeproj'
+  test_pods
+  rx
 end
 
 target :FreshlyUITests do

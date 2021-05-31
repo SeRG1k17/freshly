@@ -1,6 +1,6 @@
 //
-//  DomainTests.swift
-//  DomainTests
+//  PresentationTests.swift
+//  Presentation
 //
 //  Created by Sergey Pugach on 31.05.21.
 //

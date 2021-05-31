@@ -10,6 +10,7 @@ import Domain
 import RxTest
 import RxSwift
 @testable import Platform
+import RxTestable
 
 class EventsRepositoryTests: XCTestCase {
     

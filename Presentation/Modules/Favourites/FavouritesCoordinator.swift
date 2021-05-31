@@ -33,8 +33,6 @@ public class FavouritesCoordinator: ViewCoordinator<FavouritesRoute> {
         self.dependencies = dependencies
         
         super.init(rootViewController: rootVC)
-        //super.init(viewController: Favourites.viewController, parent: parent, map: nil)
-        //favourites.viewModel.coordinator = self
         
         let favourites = Module(
             viewModel: FavouritesViewModel(

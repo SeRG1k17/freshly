@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
+  - Common (0.1.0):
+    - RxSwift
   - Differentiator (4.0.1)
   - Instance (0.1.2)
   - Moya/Core (14.0.0):
@@ -19,12 +21,16 @@ PODS:
   - RxSwift (5.1.2)
   - RxTest (5.1.2):
     - RxSwift (~> 5)
+  - RxTestable (0.1.0):
+    - RxRelay
+    - RxTest
   - XCoordinator/Core (2.0.7)
   - XCoordinator/RxSwift (2.0.7):
     - RxSwift (~> 5.0)
     - XCoordinator/Core
 
 DEPENDENCIES:
+  - Common (from `Development Pods/Common`)
   - Instance
   - Moya/RxSwift
   - RxCocoa
@@ -32,6 +38,7 @@ DEPENDENCIES:
   - RxRelay
   - RxSwift
   - RxTest
+  - RxTestable (from `Development Pods/RxTestable`)
   - XCoordinator/RxSwift
 
 SPEC REPOS:
@@ -47,8 +54,15 @@ SPEC REPOS:
     - RxTest
     - XCoordinator
 
+EXTERNAL SOURCES:
+  Common:
+    :path: Development Pods/Common
+  RxTestable:
+    :path: Development Pods/RxTestable
+
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Common: a7053dea451743a1c9429bcd042f3dc2b2b1d023
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Instance: 94a69afd9d20934554496f9d00e3a2c181218469
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -57,8 +71,9 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxTest: 274549b747dca56f47c52c8991ec5cf797ecfe40
+  RxTestable: 83dd8ef380715cb564488a3514cafc3f770f2ecc
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
 
-PODFILE CHECKSUM: 04eebbb1d729ead4f495c1cfba26638b6eafbf17
+PODFILE CHECKSUM: 40dfcbf9d1d004401541ca87107701f93d4fbf58
 
 COCOAPODS: 1.10.1

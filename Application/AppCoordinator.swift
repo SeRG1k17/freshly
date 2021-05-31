@@ -82,9 +82,11 @@ private extension AppCoordinator {
     }
     
     func registerObservers() {
-        
-        eventsCoordinator.triggered
-            .map({ $0.appRoute })
+            
+        Observable.merge(
+            eventsCoordinator.triggered.map({ $0.appRoute }),
+            favouriteCoordinator.triggered.map({ $0.appRoute })
+        )
             .compactMap({ $0 })
             .flatMap({
                 self.rx.trigger($0)
@@ -95,6 +97,15 @@ private extension AppCoordinator {
 }
 
 private extension EventsRoute {
+    var appRoute: AppRoute? {
+        switch self {
+        case .url(let url):
+            return .url(url)
+        }
+    }
+}
+
+private extension FavouritesRoute {
     var appRoute: AppRoute? {
         switch self {
         case .url(let url):
